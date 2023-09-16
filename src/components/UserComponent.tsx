@@ -34,7 +34,7 @@ export default function UserComponent() {
   return (
     <div>
       {users.map((user) => (
-        <UserList user={user} key={user.id} handleDelete={handleDelete} />
+        <UserList user={user} handleDelete={handleDelete} />
       ))}
     </div>
   );

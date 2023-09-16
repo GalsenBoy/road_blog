@@ -1,15 +1,21 @@
 import { IUser } from "../interfaces/IUser";
 type UserListProps = {
   user: IUser;
-  key: number;
   handleDelete: (userId: number) => void;
 };
 
-export default function UserList({ user, key, handleDelete }: UserListProps) {
+export default function UserList({ user, handleDelete }: UserListProps) {
   return (
-    <p key={key}>
-      {user.id} : {user.name}
-      <button onClick={() => handleDelete(user.id)}>Supprimer le user</button>
-    </p>
+    <div className="flex items-center gap-3">
+      <p>
+        {user.id} : {user.name}
+      </p>
+      <button
+        className="rounded-full p-2 my-1 bg-purple-400"
+        onClick={() => handleDelete(user.id)}
+      >
+        Supprimer le user
+      </button>
+    </div>
   );
 }
