@@ -1,6 +1,7 @@
 import { useState } from "react";
 import UserList from "../composable/UserList";
 import { IUser } from "../interfaces/IUser";
+import DeleteUser from "../composable/DeleteUser";
 
 export default function UserComponent() {
   const [users, setUsers] = useState<IUser[]>([
@@ -27,8 +28,8 @@ export default function UserComponent() {
   ]);
 
   const handleDelete = (userId: number) => {
-    const updateUser = users.filter((user) => user.id !== userId);
-    setUsers(updateUser);
+    const updatedUsers = DeleteUser(users, userId);
+    setUsers(updatedUsers);
   };
 
   return (

@@ -6,12 +6,10 @@ type UserListProps = {
 
 export default function UserList({ user, handleDelete }: UserListProps) {
   return (
-    <div className="flex items-center gap-3">
-      <p>
-        {user.id} : {user.name}
-      </p>
+    <div className="flex max-w-xs	justify-around items-center gap-2 my-4 ">
+      <p className="text-md capitalize">{user.name}</p>
       <button
-        className="rounded-full p-2 my-1 bg-purple-400"
+        className="rounded-md p-2 bg-purple-700 hover:bg-purple-400"
         onClick={() => handleDelete(user.id)}
       >
         Supprimer le user
