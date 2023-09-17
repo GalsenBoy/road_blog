@@ -4,20 +4,13 @@ import { IUser } from "../interfaces/IUser";
 import { useForm, SubmitHandler } from "react-hook-form";
 
 type Inputs = {
-  example: string;
-  exampleRequired: string;
+  id: string;
+  newUser: string;
 };
 
 export default function UserComponent() {
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+  const { register, handleSubmit } = useForm<Inputs>();
 
-  console.log(watch("example"));
   const [users, setUsers] = useState<IUser[]>([
     {
       id: 1,
@@ -41,6 +34,18 @@ export default function UserComponent() {
     },
   ]);
 
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
+    const newUserId = parseInt(data.id);
+    const newUserName = data.newUser;
+
+    const newUser: IUser = {
+      id: newUserId,
+      name: newUserName,
+    };
+
+    setUsers((prevUsers) => [...prevUsers, newUser]);
+  };
+
   const handleDelete = (userId: number) => {
     const updatedUsers = users.filter((user) => user.id !== userId);
     setUsers(updatedUsers);
@@ -53,15 +58,15 @@ export default function UserComponent() {
           <UserList user={user} handleDelete={handleDelete} />
         ))}
       </div>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        {/* register your input into the hook by invoking the "register" function */}
-        <input defaultValue="test" {...register("example")} />
-
-        {/* include validation with required or other standard HTML validation rules */}
-        <input {...register("exampleRequired", { required: true })} />
-        {/* errors will return when field validation fails  */}
-        {errors.exampleRequired && <span>This field is required</span>}
-
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="flex flex-col max-w-sm mx-auto gap-5"
+      >
+        <input className="text-black" {...register("id", { required: true })} />
+        <input
+          className="text-black"
+          {...register("newUser", { required: true })}
+        />
         <input type="submit" />
       </form>
     </>
