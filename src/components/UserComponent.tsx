@@ -1,15 +1,13 @@
 import { useState } from "react";
 import UserList from "../composable/UserList";
 import { IUser } from "../interfaces/IUser";
-import { useForm, SubmitHandler } from "react-hook-form";
-
+import AddUser from "../composable/AddUser";
 type Inputs = {
   id: string;
   newUser: string;
 };
 
 export default function UserComponent() {
-  const { register, handleSubmit } = useForm<Inputs>();
 
   const [users, setUsers] = useState<IUser[]>([
     {
@@ -34,16 +32,16 @@ export default function UserComponent() {
     },
   ]);
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
-    const newUserId = parseInt(data.id);
-    const newUserName = data.newUser;
+  const handleAddUser = (newUser: Inputs) => {
+    const newUserId = parseInt(newUser.id);
+    const newUserName = newUser.newUser;
 
-    const newUser: IUser = {
+    const newUserObj: IUser = {
       id: newUserId,
       name: newUserName,
     };
 
-    setUsers((prevUsers) => [...prevUsers, newUser]);
+    setUsers([...users, newUserObj]);
   };
 
   const handleDelete = (userId: number) => {
@@ -58,17 +56,7 @@ export default function UserComponent() {
           <UserList user={user} handleDelete={handleDelete} />
         ))}
       </div>
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col max-w-sm mx-auto gap-5"
-      >
-        <input className="text-black" {...register("id", { required: true })} />
-        <input
-          className="text-black"
-          {...register("newUser", { required: true })}
-        />
-        <input type="submit" />
-      </form>
+      <AddUser onSubmit={handleAddUser} />
     </>
   );
 }
