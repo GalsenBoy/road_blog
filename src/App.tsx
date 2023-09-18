@@ -1,10 +1,10 @@
 import "./App.css";
-import DisplayUser from "./components/DisplayUser";
+import UserComponent from "./components/UserComponent";
 
 function App() {
   return (
     <>
-      <DisplayUser />
+      <UserComponent />
     </>
   );
 }
