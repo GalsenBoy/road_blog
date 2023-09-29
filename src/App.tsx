@@ -1,10 +1,9 @@
 import "./App.css";
-import UserComponent from "./components/UserComponent";
 
 function App() {
   return (
     <>
-      <UserComponent />
+    Return
     </>
   );
 }
