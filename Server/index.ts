@@ -17,7 +17,7 @@ app.post(`/post`, async (req, res) => {
   try {
     const post = req.body;
 
-    if (!post) {
+    if (!post.title || !post.content) {
       return res.status(400).json({ error: 'Le titre et son contenu sont obligatoire.' });
     }
 
@@ -31,6 +31,16 @@ app.post(`/post`, async (req, res) => {
     res.status(500).json({ error: "Une erreur s'est produite lors de la création d'un post." });
   }
 });
+
+app.delete(`/post/:id`, async (req, res) => {
+  const { id } = req.params
+  const post = await prisma.post.delete({
+    where: {
+      id: Number(id),
+    },
+  })
+  res.json(post)
+})
 
 
 async function main() {
