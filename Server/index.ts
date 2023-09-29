@@ -42,6 +42,15 @@ app.delete(`/post/:id`, async (req, res) => {
   res.json(post)
 })
 
+app.put('/post/:id', async (req, res) => {
+  const { id } = req.params
+  const post = await prisma.post.update({
+    where: { id: Number(id) },
+    data: { published: true },
+  })
+  res.json(post)
+})
+
 
 async function main() {
   
