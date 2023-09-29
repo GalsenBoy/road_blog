@@ -1,41 +1,44 @@
 import { PrismaClient } from "@prisma/client";
 import express from "express";
+import "dotenv/config";
 
 const prisma = new PrismaClient();
-
 const app = express();
+
+app.use(express.json());
+
 
 app.get("/", async (req, res) => {
   const posts = await prisma.post.findMany();
   res.json(posts);
 });
 
-async function main() {
-  // await prisma.user.create({
-  //   data: {
-  //     name: "Alice",
-  //     email: "alice@prisma.io",
-  //     posts: {
-  //       create: { title: "Hello World" },
-  //     },
-  //     profile: {
-  //       create: { bio: "I like turtles" },
-  //     },
-  //   },
-  // });
+app.post(`/post`, async (req, res) => {
+  try {
+    const post = req.body;
 
-  const allUsers = await prisma.user.findMany({
-    include: {
-      posts: true,
-      profile: true,
-    },
-  });
-  console.dir(allUsers, { depth: null });
+    if (!post) {
+      return res.status(400).json({ error: 'Le titre et son contenu sont obligatoire.' });
+    }
+
+    const result = await prisma.post.create({
+      data: post,
+    });
+
+    res.status(201).json(result);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Une erreur s'est produite lors de la création d'un post." });
+  }
+});
+
+
+async function main() {
+  
 }
 app.listen(`${process.env.PORT}`, () => {
   console.log(`Le serveur est démarré sur le port ${process.env.PORT}`);
 });
-
 
 main()
   .then(async () => {
