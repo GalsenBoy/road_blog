@@ -1,0 +1,7 @@
+@mixin flex {
+  display: flex;
+}
+@mixin widthHeightFull {
+  width: 100%;
+  height: 100%;
+}

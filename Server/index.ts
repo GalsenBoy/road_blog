@@ -1,11 +1,18 @@
 import { PrismaClient } from "@prisma/client";
 import express from "express";
 import "dotenv/config";
+import cors from "cors";
 
 const prisma = new PrismaClient();
 const app = express();
 
 app.use(express.json());
+app.use(cors({
+  origin: "*",
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Origin", "X-Requested-With", "Content-Type", "Accept", "Authorization", "Access-Control-Allow-Methods", "Access-Control-Allow-Origin", "Access-Control-Allow-Headers", "x-access-token"],
+  credentials: true,
+}));
 
 
 app.get("/", async (req, res) => {

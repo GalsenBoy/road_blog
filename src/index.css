@@ -4,6 +4,11 @@
 
 
 body {
-    background-color: rgb(37, 33, 33);
-    color: rgb(236, 228, 228);
+    background-color: #231F20;
+    color: rgb(228, 228, 228);
+    font-family: Helvetica,sans-serif ;
 }
+img{
+    object-fit: cover;
+}
+

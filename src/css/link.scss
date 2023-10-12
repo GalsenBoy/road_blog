@@ -1,0 +1,11 @@
+a{
+    background-color: #5887FF;
+    padding: .5em;
+    border-radius: 7px;
+    transition: background-color .3s ease-in;
+    font-weight: bold;
+    &:hover{
+        background-color: rgb(228, 228, 228);
+        color: #5887FF;
+    }
+}

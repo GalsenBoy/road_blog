@@ -1,11 +1,14 @@
 import "./App.css";
-import UserComponent from "./components/UserComponent";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Card from "./components/Card";
 
 function App() {
   return (
-    <>
-      <UserComponent />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Card/>}></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
