@@ -31,7 +31,7 @@ export default function Card() {
       {isLoading ? (
         posts?.map((post) => <CardItems post={post} key={post.id} />)
       ) : (
-        <p>Attend un peu bg</p>
+        <p>Attend un peu bg c'est entrain de charger</p>
       )}
     </section>
   );
