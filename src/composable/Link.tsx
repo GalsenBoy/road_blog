@@ -6,5 +6,5 @@ type LinkProps = {
 }
 
 export default function Link({content,to}:LinkProps){
-return <NavLink to={to}>{content}</NavLink>
+return (<NavLink to={to}>{content}</NavLink>)
 }
