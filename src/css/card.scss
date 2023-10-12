@@ -1,22 +1,37 @@
 #card-container {
   max-width: 250px;
-  border: 1px solid crimson;
+  margin: 0.5em;
+  background-color: #193864;
   #photo-post {
     img {
       width: 100%;
       height: 150px;
+      border-radius: 10px 10px 0 0;
     }
   }
   #personne {
-    padding: .5em;
     gap: 1em;
+    padding: 0.3em;
     @include flex;
     #photo-profil {
-      width: 40%;
-      height: 40%;
+      height: 3.5em;
+      width: 3.5em;
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+      }
     }
-    #identite:nth-child(2){
-        font-size: small;
+    #identite {
+      p:nth-child(2) {
+        font-size: smaller;
+      }
     }
+  }
+  h1 {
+    padding: 0.3em 0 0.3em .3em;
+  }
+  #contenu-blog {
+    padding: .1em .1em .1em .5em ;
   }
 }

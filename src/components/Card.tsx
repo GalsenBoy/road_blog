@@ -17,7 +17,7 @@ export default function Card() {
           </div>
         </div>
         <h1>Le titre du blog</h1>
-        <p>Le contenu du blog</p>
+        <p id="contenu-blog">Le contenu du blog fefffffff effffffffffff efffffffff effffffff</p>
       </div>
     </section>
   );
