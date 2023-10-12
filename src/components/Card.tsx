@@ -3,6 +3,7 @@ import "../css/card.scss";
 import IPost from "../interfaces/IPost";
 import axios from "axios";
 import { API_REMOTE } from "../routes";
+import CardItems from "../composable/CardItems";
 
 export default function Card() {
   const [posts, setPosts] = useState<IPost[]>();
@@ -27,27 +28,10 @@ export default function Card() {
     <section>
       {isLoading ? (
         posts?.map((post) => (
-          <div id="card-container">
-            <div id="photo-post">
-              <img src="/nature.jpg" alt="" />
-            </div>
-            <div id="personne">
-              <div id="photo-profil">
-                <img src="/woman.jpg" alt="" />
-              </div>
-              <div id="identite">
-                <p>Fatima Zeynab</p>
-                <p>Publié le 12/10/2023</p>
-              </div>
-            </div>
-            <h1>{post.title}</h1>
-            <p id="contenu-blog">
-             {post.content}
-            </p>
-          </div>
+          <CardItems post={post} key={post.id}/>
         ))
       ) : (
-        <p>C'est entrain de charger bg attend un peu</p>
+        <p>Attend un peu bg</p>
       )}
     </section>
   );
