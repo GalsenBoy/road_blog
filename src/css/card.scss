@@ -3,6 +3,11 @@
   margin: 0.5em;
   border-radius: 10px 10px 0 0;
   background-color: #193864;
+  transition: transform .3s ease-out;
+  cursor: pointer;
+  &:hover{
+    transform: scale(.94);
+  }
   #photo-post {
     img {
       width: 100%;
