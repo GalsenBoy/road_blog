@@ -1,18 +1,32 @@
 import fastify from "fastify";
-const app = fastify()
+import mysql from "mysql2";
 
-app.register(import('@fastify/mysql'),{
-    connectionString:'mysql://root@localhost/my_blog'
-})
+const app = fastify();
+
+const db = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    database: 'my_blog'
+  });
+
+app.get("/", (req, res) => {
+  try {
+    const result =  db.query("SELECT * FROM post");
+    res.send(result);
+  } catch (err) {
+    res.send(err);
+  }
+});
 
 const start = async () => {
-    try {
-        await app.listen({port:3000})
-    } catch (error) {
-        console.error(error)
-        // eslint-disable-next-line no-undef
-        process.exit(1)
-    }
-}
+  try {
+    await app.listen({ port: 5000 });
+    console.log(`Server running on ${app.server.address().port}`);
+  } catch (error) {
+    console.error(error);
+    /* eslint-disable no-undef */
+    process.exit(1);
+  }
+};
 
-start()
+start();
