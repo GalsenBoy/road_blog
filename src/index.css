@@ -2,10 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+:root{
+    --textColor: rgb(228, 228, 228);
+    --bgColor:#231F20
+}
+
 
 body {
-    background-color: #231F20;
-    color: rgb(228, 228, 228);
+    background-color: var(--bgColor);
+    color: var(--textColor);
     font-family: Helvetica,sans-serif ;
     margin: 0;
     padding: 0;

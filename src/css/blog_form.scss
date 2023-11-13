@@ -1,7 +1,23 @@
-section{
-    form{
-        max-width: 800px;
-        border: 1px solid salmon;
-        margin: 0 auto;
+section {
+  form {
+    max-width: 800px;
+    margin: 0 auto;
+    #form-container {
+        .input-group{
+            margin: 1em 0;
+            input,textarea{
+                color: var(--bgColor);
+                padding: .7em;
+                width: 50%;
+                border-radius: 10px;
+            }
+            textarea{
+                resize: none;
+            }
+        }
+        button{
+            @include buttonLink();
+        }
     }
+  }
 }
