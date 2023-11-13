@@ -27,7 +27,7 @@ export default function Card() {
 
   return (
     <section>
-      <Link content="Créer un blog" to="/test" />
+      <Link content="Créer un blog" to="/create-blog" />
       {isLoading ? (
         posts?.map((post) => <CardItems post={post} key={post.id} />)
       ) : (
