@@ -1,7 +1,32 @@
 @mixin flex {
   display: flex;
 }
+
+@mixin justifyCenter{
+  @include flex();
+  justify-content: center;
+}
+@mixin alignCenter{
+  align-items: center;
+}
+@mixin justifyAlignCenter{
+  @include justifyAlignCenter();
+  @include alignCenter()
+}
+
 @mixin widthHeightFull {
   width: 100%;
   height: 100%;
+}
+
+@mixin buttonLink{
+    background-color: #5887FF;
+    padding: 0.5em 1em;
+    border-radius: 7px;
+    transition: background-color .3s ease-in;
+    font-weight: bold;
+    &:hover{
+        background-color: rgb(228, 228, 228);
+        color: #5887FF;
+    }
 }

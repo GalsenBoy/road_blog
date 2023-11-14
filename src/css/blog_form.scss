@@ -1,0 +1,28 @@
+section {
+  form {
+    max-width: 800px;
+    margin: 0 auto;
+    #form-container {
+      .input-group {
+        margin: 1em 0;
+        input,
+        textarea {
+          color: var(--bgColor);
+          padding: 0.7em;
+          width: 50%;
+          border-radius: 10px;
+          &:focus{
+            outline: none;
+          }
+        }
+        textarea {
+          resize: none;
+        }
+      }
+      button {
+        @include buttonLink();
+        padding: 0.5em 1em;
+      }
+    }
+  }
+}
