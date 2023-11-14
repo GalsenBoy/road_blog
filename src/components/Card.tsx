@@ -13,8 +13,8 @@ export default function Card() {
   const allPost = async () => {
     try {
       const response = await axios.get(API_REMOTE);
-      setPosts(response.data);
-      console.log(response.data);
+      setPosts(response.data.post);
+      console.log(response.data.post);
       setIsLoading(true);
     } catch (error) {
       console.log(error);
