@@ -13,5 +13,8 @@ export class User {
   lastName: string;
 
   @Column()
+  pseudo: string;
+
+  @Column()
   isActive: boolean;
 }
