@@ -1,8 +1,14 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
 import { IUser } from 'interfaces/IUser';
+import { User } from './users.entity';
+import { Repository } from 'typeorm';
 
 @Injectable()
 export class UsersService {
+  constructor(
+    @InjectRepository(User) private userRepository: Repository<User>,
+  ) {}
   private users: IUser[] = [
     {
       id: 1,
@@ -52,7 +58,7 @@ export class UsersService {
     if (role) {
       return this.users.filter((user) => user.role === role);
     }
-    return this.users;
+    return this.userRepository;
   }
   findOne(id: number) {
     if (id) {
