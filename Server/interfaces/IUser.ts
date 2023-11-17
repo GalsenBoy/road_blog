@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 export interface IUser {
-  id: number;
+  id:string
   name: string;
   email: string;
   role: string;

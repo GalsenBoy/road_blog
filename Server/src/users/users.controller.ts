@@ -10,6 +10,7 @@ import {
   Query,
 } from '@nestjs/common';
 import { UsersService } from './users.service';
+import { IUser } from 'interfaces/IUser';
 
 @Controller('users')
 export class UsersController {
@@ -22,18 +23,13 @@ export class UsersController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.usersService.findOne(+id);
+    return this.usersService.findOne(id);
   }
 
   @Post()
   create(
     @Body()
-    user: {
-      id: number;
-      name: string;
-      email: string;
-      role: 'INTERN' | 'ENGINEER' | 'ADMIN';
-    },
+    user: IUser
   ) {
     return this.usersService.create(user);
   }
@@ -43,8 +39,8 @@ export class UsersController {
     return { id, ...userUpdate };
   }
 
-  @Delete('id')
+  @Delete(':id')
   delete(@Param('id') id: string) {
-    return this.usersService.delete(+id);
+    return this.usersService.delete(id);
   }
 }

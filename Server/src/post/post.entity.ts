@@ -2,19 +2,19 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
 @Entity()
-export class User {
+export class Post {
   @PrimaryGeneratedColumn("uuid")
   id: string;
 
   @Column()
-  firstName: string;
+  title: string;
 
   @Column()
-  lastName: string;
+  description: string;
 
   @Column()
-  pseudo: string;
+  image: string;
 
   @Column()
-  isActive: boolean;
+  create_at: Date;
 }

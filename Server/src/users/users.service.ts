@@ -17,10 +17,10 @@ export class UsersService {
     // }
     return this.userRepository.find();
   }
-  findOne(id: number) {
+  findOne(id: string) {
     return this.userRepository.findOneBy({ id });
   }
-  async update(id: number, updateUser: IUser) {
+  async update(id: string, updateUser: IUser) {
     const user = await this.findOne(id);
     return this.userRepository.save({ ...user, ...updateUser });
   }
@@ -29,8 +29,8 @@ export class UsersService {
     const newUser = this.userRepository.create(user);
     return this.userRepository.save(newUser);
   }
-  async delete(id: number) {
-    const userId = await this.findOne(id);
-    return this.userRepository.remove(userId);
+  async delete(id: string) {
+    const user = await this.findOne(id);
+    return this.userRepository.remove(user);
   }
 }
