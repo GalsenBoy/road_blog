@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { Controller, Get,Post,Delete } from '@nestjs/common';
+import { Controller, Get,Post,Delete,Body,Param } from '@nestjs/common';
 import { PostService } from './post.service';
 import { IPost } from 'interfaces/IPost';
 
@@ -12,17 +12,17 @@ export class PostController {
   }
 
   @Post()
-  create(post:IPost){
+  create(@Body() post:IPost){
     return this.postService.create(post);
   }
 
-  @Get()
-  findOne(id:number){
+  @Get(':id')
+  findOne(@Param('id') id:string){
     return this.postService.findOne(id)
   }
 
-  @Delete()
-  delete(id:number){
+  @Delete(':id')
+  delete(@Param('id') id:string){
     return this.postService.delete(id)
   }
 }

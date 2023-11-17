@@ -20,16 +20,16 @@ export class PostService {
     return this.postRepository.save(newPost);
   }
 
-  findOne(id: number) {
+  findOne(id: string) {
     return this.postRepository.findOneBy({ id });
   }
 
-  async update(id: number, updatePost: IPost) {
+  async update(id: string, updatePost: IPost) {
     const post = await this.findOne(id);
     return this.postRepository.save({ ...post, ...updatePost });
   }
 
-  async delete(id: number) {
+  async delete(id: string) {
     const post = await this.findOne(id);
     return this.postRepository.remove(post);
   }
