@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { IUser } from 'interfaces/IUser';
@@ -8,7 +9,7 @@ import { Repository } from 'typeorm';
 export class UsersService {
   constructor(
     @InjectRepository(User) private userRepository: Repository<User>,
-  ) {}
+  ) { }
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   findAll(role?: 'INTERN' | 'ENGINEER' | 'ADMIN') {
