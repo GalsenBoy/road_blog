@@ -8,9 +8,14 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersModule } from './users/users.module';
 import { PostModule } from './post/post.module';
+import { UploadModule } from './upload/upload.module';
+import { MulterModule } from '@nestjs/platform-express';
 
 @Module({
   imports: [
+    MulterModule.register({
+      dest: './uploads', // spécifiez le répertoire de destination des fichiers téléchargés
+    }),
     ConfigModule.forRoot(),
     TypeOrmModule.forRoot(
       dataSourceOptions,
@@ -18,6 +23,7 @@ import { PostModule } from './post/post.module';
     ),
     UsersModule,
     PostModule,
+    UploadModule,
   ],
   controllers: [AppController],
   providers: [AppService],
