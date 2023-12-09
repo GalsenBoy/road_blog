@@ -1,3 +1,5 @@
+/* eslint-disable prettier/prettier */
+
 import { Module } from '@nestjs/common';
 import { PostController } from './post.controller';
 import { PostService } from './post.service';
@@ -9,4 +11,4 @@ import { TypeOrmModule } from '@nestjs/typeorm';
   providers: [PostService],
   imports: [TypeOrmModule.forFeature([Post])],
 })
-export class PostModule {}
+export class PostModule { }

@@ -1,3 +1,5 @@
+/* eslint-disable prettier/prettier */
+
 import { dataSourceOptions } from '../db/data.source';
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
@@ -6,10 +8,14 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersModule } from './users/users.module';
 import { PostModule } from './post/post.module';
-import { FilesModule } from './files/files.module';
+import { UploadModule } from './upload/upload.module';
+import { MulterModule } from '@nestjs/platform-express';
 
 @Module({
   imports: [
+    MulterModule.register({
+      dest: './uploads', // spécifiez le répertoire de destination des fichiers téléchargés
+    }),
     ConfigModule.forRoot(),
     TypeOrmModule.forRoot(
       dataSourceOptions,
@@ -17,9 +23,9 @@ import { FilesModule } from './files/files.module';
     ),
     UsersModule,
     PostModule,
-    FilesModule,
+    UploadModule,
   ],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule { }
