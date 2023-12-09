@@ -9,7 +9,7 @@ import { IPost } from 'interfaces/IPost';
 export class PostService {
   constructor(
     @InjectRepository(Post) private postRepository: Repository<Post>,
-  ) {}
+  ) { }
 
   findAll() {
     return this.postRepository.find();

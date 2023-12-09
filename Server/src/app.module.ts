@@ -1,3 +1,5 @@
+/* eslint-disable prettier/prettier */
+
 import { dataSourceOptions } from '../db/data.source';
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
@@ -20,4 +22,4 @@ import { PostModule } from './post/post.module';
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule { }
