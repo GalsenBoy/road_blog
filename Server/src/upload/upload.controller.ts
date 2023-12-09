@@ -9,7 +9,7 @@ import {
 
 @Controller('upload')
 export class UploadController {
-  @Post('/upload')
+  @Post()
   @UseInterceptors(FileInterceptor('file'))
   uploadFile(@UploadedFile() file: Express.Multer.File) {
     console.log(file);
