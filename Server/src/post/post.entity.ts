@@ -1,9 +1,15 @@
 /* eslint-disable prettier/prettier */
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Upload } from 'src/upload/upload.entity';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  OneToMany,
+} from 'typeorm';
 
 @Entity()
 export class Post {
-  @PrimaryGeneratedColumn("uuid")
+  @PrimaryGeneratedColumn('uuid')
   id: string;
 
   @Column()
@@ -13,8 +19,9 @@ export class Post {
   description: string;
 
   @Column()
-  image: string;
-
-  @Column()
   create_at: Date;
+  @OneToMany(() => Upload, (upload) => upload.post,{
+    cascade:true
+  })
+  upload: Upload[];
 }
