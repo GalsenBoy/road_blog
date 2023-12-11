@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Post } from 'src/post/post.entity';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
 
 @Entity()
 export class Upload {
@@ -11,4 +12,7 @@ export class Upload {
   originalname: string;
   @Column()
   mimetype: string;
+
+  @ManyToOne(() => Post, (post) => post.upload)
+  post: Post;
 }

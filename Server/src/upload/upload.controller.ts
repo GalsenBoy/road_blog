@@ -20,6 +20,6 @@ export class UploadController {
       // new FileTypeValidator({ fileType: 'image/jpeg' })
     ]
   })) file: Express.Multer.File) {
-    console.log(file.path);
+    console.log(file);
   }
 }
