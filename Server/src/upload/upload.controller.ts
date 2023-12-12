@@ -6,6 +6,8 @@ import {
   UseInterceptors,
   UploadedFile,
   Body,
+  Get,
+  Param
 } from '@nestjs/common';
 import { UploadService } from './upload.service';
 
@@ -17,4 +19,16 @@ export class UploadController {
   uploadFile(@Body() body: string, @UploadedFile() file: Express.Multer.File) {
     return this.uploadService.create(file)
   }
+
+  @Get()
+  getAllImages(){
+    return this.uploadService.getAllImages()
+  }
+
+  @Get(':id')
+  getOneImage(@Param('id') id:string){
+    return this.uploadService.getOneImage(id)
+  }
+
+
 }
