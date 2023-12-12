@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { Injectable, Post,Get, Param } from '@nestjs/common';
+import { Injectable, Post } from '@nestjs/common';
 import { Upload } from './upload.entity';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -16,13 +16,11 @@ export class UploadService {
     return this.uploadRepository.save(newUpload);
   }
 
-  @Get()
-  getAllImages(){
-    return this.uploadRepository.find()
+  getAllImages() {
+    return this.uploadRepository.find();
   }
 
-  @Get(':id')
-  getOneImage(@Param('id') id: string){
-   return this.uploadRepository.findOneBy({id})
+  getOneImage(id: string) {
+    return this.uploadRepository.findOneBy({ id });
   }
 }

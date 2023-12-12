@@ -30,5 +30,4 @@ export class UploadController {
     return this.uploadService.getOneImage(id)
   }
 
-
 }
