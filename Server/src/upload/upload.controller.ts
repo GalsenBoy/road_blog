@@ -14,7 +14,9 @@ import { UploadService } from './upload.service';
 @Controller('upload')
 export class UploadController {
   constructor(private readonly uploadService: UploadService) {}
-  @UseInterceptors(FileInterceptor('file'))
+  @UseInterceptors(FileInterceptor('file',{
+    dest:'upload'
+  }))
   @Post()
   uploadFile(@Body() body: string, @UploadedFile() file: Express.Multer.File) {
     return this.uploadService.create(file)
