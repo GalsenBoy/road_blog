@@ -3,6 +3,7 @@ import { Controller, Get, Post, Delete, Body, Param, UploadedFile, UseIntercepto
 import { PostService } from './post.service';
 import { IPost } from 'interfaces/IPost';
 import { FileInterceptor } from '@nestjs/platform-express';
+import { Upload } from 'src/upload/upload.entity';
 
 @Controller('posts')
 export class PostController {
@@ -18,11 +19,20 @@ export class PostController {
   }))
   async create(@Body() post: IPost, @UploadedFile() file: Express.Multer.File) {
     try {
-      if (file && file.buffer) {
-        console.log('File Content:', file.buffer);
-        post.file = file.buffer.toString('base64');
+      let uploads: Upload[] = [];
+
+      if (file) {
+        console.log('File Content:', file);
+        // Créer une instance d'Upload et associer avec le post
+        const upload = new Upload();
+        upload.fieldname = file.fieldname;
+        upload.originalname = file.originalname;
+        upload.mimetype = file.mimetype;
+
+        uploads = [upload];
       }
-      return this.postService.create(post);
+
+      return this.postService.create(post, uploads);
     } catch (error) {
       console.log(error);
     }
