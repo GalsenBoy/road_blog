@@ -18,7 +18,7 @@ export class PostService {
 
   async create(post: IPost, uploads: Upload[]) {
     const newPost = this.postRepository.create(post);
-    newPost.upload = uploads; // Assurez-vous que la relation est correctement établie
+    newPost.upload = uploads;
     const savedPost = await this.postRepository.save(newPost, { reload: true });
     console.log('Saved Post:', savedPost);
     return savedPost;
