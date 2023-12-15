@@ -4,6 +4,7 @@ import { Post } from './post.entity';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { IPost } from 'interfaces/IPost';
+import { Upload } from 'src/upload/upload.entity';
 
 @Injectable()
 export class PostService {
@@ -15,10 +16,15 @@ export class PostService {
     return this.postRepository.find();
   }
 
-  create(post: IPost) {
+  async create(post: IPost, uploads: Upload[]) {
     const newPost = this.postRepository.create(post);
-    return this.postRepository.save(newPost);
+    newPost.upload = uploads;
+    const savedPost = await this.postRepository.save(newPost, { reload: true });
+    console.log('Saved Post:', savedPost);
+    return savedPost;
   }
+
+
 
   findOne(id: string) {
     return this.postRepository.findOneBy({ id });

@@ -5,6 +5,7 @@ import {
   PrimaryGeneratedColumn,
   Column,
   OneToMany,
+  CreateDateColumn,
 } from 'typeorm';
 
 @Entity()
@@ -18,10 +19,11 @@ export class Post {
   @Column()
   description: string;
 
-  @Column()
+  @CreateDateColumn()
   create_at: Date;
-  @OneToMany(() => Upload, (upload) => upload.post,{
-    cascade:true
+
+  @OneToMany(() => Upload, (upload) => upload.post, {
+    cascade: true
   })
   upload: Upload[];
 }

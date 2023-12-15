@@ -13,9 +13,9 @@ import { UploadService } from './upload.service';
 
 @Controller('upload')
 export class UploadController {
-  constructor(private readonly uploadService: UploadService) {}
-  @UseInterceptors(FileInterceptor('file',{
-    dest:'upload'
+  constructor(private readonly uploadService: UploadService) { }
+  @UseInterceptors(FileInterceptor('file', {
+    dest: 'uploads'
   }))
   @Post()
   uploadFile(@Body() body: string, @UploadedFile() file: Express.Multer.File) {
@@ -23,12 +23,12 @@ export class UploadController {
   }
 
   @Get()
-  getAllImages(){
+  getAllImages() {
     return this.uploadService.getAllImages()
   }
 
   @Get(':id')
-  getOneImage(@Param('id') id:string){
+  getOneImage(@Param('id') id: string) {
     return this.uploadService.getOneImage(id)
   }
 
