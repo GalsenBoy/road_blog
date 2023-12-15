@@ -12,7 +12,7 @@ export class PostService {
     @InjectRepository(Post) private postRepository: Repository<Post>,
   ) { }
 
-  findAll() {
+  async findAll() {
     return this.postRepository.find();
   }
 
@@ -26,7 +26,7 @@ export class PostService {
 
 
 
-  findOne(id: string) {
+  async findOne(id: string) {
     return this.postRepository.findOneBy({ id });
   }
 
