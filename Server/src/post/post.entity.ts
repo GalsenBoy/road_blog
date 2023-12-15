@@ -20,8 +20,12 @@ export class Post {
 
   @Column()
   create_at: Date;
-  @OneToMany(() => Upload, (upload) => upload.post,{
-    cascade:true
+
+  @Column()
+  file: string
+
+  @OneToMany(() => Upload, (upload) => upload.post, {
+    cascade: true
   })
   upload: Upload[];
 }

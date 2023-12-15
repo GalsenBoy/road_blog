@@ -1,8 +1,8 @@
 /* eslint-disable prettier/prettier */
 export interface IPost {
-  id:string
+  id: string
   title: string;
   description: string;
-  image: string;
+  file: string;
   create_at: Date;
 }

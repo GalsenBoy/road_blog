@@ -17,6 +17,7 @@ export class PostService {
 
   create(post: IPost) {
     const newPost = this.postRepository.create(post);
+    console.log('New Post:', newPost);
     return this.postRepository.save(newPost);
   }
 
