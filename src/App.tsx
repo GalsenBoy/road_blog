@@ -1,14 +1,12 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Card from "./components/Card";
-import BlogForm from "./components/BlogForm";
+import Accueil from "./components/Accueil";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Card/>}></Route>
-        <Route path="/create-blog" element={<BlogForm/>}></Route>
+        <Route path="/" element={<Accueil />}></Route>
       </Routes>
     </BrowserRouter>
   );
