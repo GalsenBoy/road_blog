@@ -9,7 +9,7 @@ import { Upload } from 'src/upload/upload.entity';
 export class PostController {
   constructor(private readonly postService: PostService) { }
   @Get()
-  findAll() {
+  async findAll() {
     return this.postService.findAll();
   }
 
@@ -20,15 +20,11 @@ export class PostController {
   async create(@Body() post: IPost, @UploadedFile() file: Express.Multer.File) {
     try {
       let uploads: Upload[] = [];
-
       if (file) {
-        console.log('File Content:', file);
-        // Créer une instance d'Upload et associer avec le post
         const upload = new Upload();
         upload.fieldname = file.fieldname;
         upload.originalname = file.originalname;
         upload.mimetype = file.mimetype;
-
         uploads = [upload];
       }
 
