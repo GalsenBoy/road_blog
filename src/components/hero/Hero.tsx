@@ -4,8 +4,7 @@ export default function Hero() {
     <section>
       <div id="hero-container">
         <div id="hero-image">
-          <img src="/reactnest.webp" alt="" />
-          <div></div>
+          <img src="/reactnest.webp" alt="react" />
         </div>
       </div>
     </section>
