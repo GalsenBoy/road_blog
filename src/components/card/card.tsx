@@ -1,4 +1,4 @@
-import truncate from '../../utils/truncate'
+import { truncate } from '../../utils/truncate'
 import './card.scss'
 export default function Card(){
  return (
@@ -6,7 +6,7 @@ export default function Card(){
         <div id="card-container">
             <img src="/nature.jpg" alt="" />
             <div id='card-data'>
-                <h1>Migrating to linear 101</h1>
+                <h3>Migrating to linear 101</h3>
                 <p>{truncate("Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae magnam tempore possimus enim voluptatum sapiente exercitationem ullam sunt rem")}</p>
                 <p id='publication'>Publié le 11 Dec 2028</p>
             </div>
@@ -14,7 +14,7 @@ export default function Card(){
         <div id="card-container">
             <img src="/nature.jpg" alt="" />
             <div id='card-data'>
-                <h1>Migrating to linear 101</h1>
+                <h3>Migrating to linear 101</h3>
                 <p>{truncate("Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae magnam tempore possimus enim voluptatum sapiente exercitationem ullam sunt rem")}</p>
                 <p id='publication'>Publié le 11 Dec 2028</p>
             </div>
@@ -22,7 +22,7 @@ export default function Card(){
         <div id="card-container">
             <img src="/nature.jpg" alt="" />
             <div id='card-data'>
-                <h1>Migrating to linear 101</h1>
+                <h3>Migrating to linear 101</h3>
                 <p>{truncate("Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae magnam tempore possimus enim voluptatum sapiente exercitationem ullam sunt rem")}</p>
                 <p id='publication'>Publié le 11 Dec 2028</p>
             </div>
