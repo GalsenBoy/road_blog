@@ -1,0 +1,20 @@
+#card-container {
+  max-width: 350px;
+  margin-top: 3em;
+  padding: 2em;
+  #card-flex {
+    img {
+      border-radius: 20px;
+    }
+    #card-data {
+      margin-top: 1em;
+      h1 {
+        font-weight: 700;
+        font-size: 1.3em;
+      }
+      p {
+        margin-top: 1em;
+      }
+    }
+  }
+}
