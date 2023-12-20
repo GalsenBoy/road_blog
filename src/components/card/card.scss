@@ -1,5 +1,5 @@
 #card-flex {
-  display: flex;
+  @include flex();
   gap: 1em;
   flex-wrap: wrap;
   margin-top: 3em;
@@ -10,17 +10,17 @@
       border-radius: 20px;
     }
     #card-data {
-      margin-top: 1em;
       h3 {
         font-weight: 700;
         font-size: 1.3em;
       }
-      p {
-        margin-top: 1em;
-      }
+      
       #publication{
         font-weight: 500;
       }
+    }
+    #card-data,p{
+      margin-top: 1em;
     }
   }
 }
