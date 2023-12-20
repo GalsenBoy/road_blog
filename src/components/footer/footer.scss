@@ -1,6 +1,24 @@
-#footer-container{
-    img{
-        width: 50px;
-        border-radius: 50%;
+footer {
+  margin-top: 5em;
+  padding: 1.5em;
+  #footer-container {
+    @include flexAlignCenter();
+    gap: 1em;
+    h3 {
+      font-size: 1.4em;
     }
+    div {
+      gap: 0.7em;
+      @include flex();
+    }
+  }
+  #copyright {
+    margin-top: 3em;
+    border-top: 2px solid;
+    @include justifyCenter();
+    font-size: 1.2em;
+    h4{
+        margin-top: .5em;
+    }
+  }
 }

@@ -1,15 +1,13 @@
 #target-contain {
   padding: 1.5em;
   h1 {
-    font-weight: 700;
+    font-weight: bold;
     font-size: 2.2em;
   }
   p {
     margin-top: 2em;
     strong {
-      // font-weight: 600;
-      text-decoration: underline;
-      text-underline-offset: 2px;
+     @include underlineWithOffset()
     }
   }
 }
