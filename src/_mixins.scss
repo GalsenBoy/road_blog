@@ -27,14 +27,20 @@
   height: 100%;
 }
 
-@mixin buttonLink{
-    background-color: #5887FF;
-    padding: 0.5em 1em;
-    border-radius: 7px;
-    transition: background-color .3s ease-in;
-    font-weight: bold;
-    &:hover{
-        background-color: rgb(228, 228, 228);
-        color: #5887FF;
-    }
+@mixin radius{
+  border-radius: 20px;
+}
+
+@mixin marginTop($value){
+  margin-top: $value;
+}
+
+@mixin heroImage{
+  width: 100%;
+  height: 500px;
+  @include radius();
+}
+
+@mixin lineHeight{
+  line-height: 1.7em;
 }

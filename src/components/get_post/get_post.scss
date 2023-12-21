@@ -1,0 +1,16 @@
+#getPostContain {
+  h1 {
+    text-align: center;
+    font-size: 2.2em;
+    font-weight: 600;
+    margin-bottom: 1em;
+  }
+  img {
+    @include heroImage();
+  }
+  p{
+    @include marginTop(3em);
+    @include lineHeight();
+    padding: 0 1em;
+  }
+}

@@ -6,7 +6,7 @@ export default function Header() {
 
   const navs :ILink[] = [
     {
-      to:"/test",
+      to:"/get",
       content:"Hi the world"
     },
     {

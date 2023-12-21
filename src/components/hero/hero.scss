@@ -1,9 +1,7 @@
-#hero-container{
-    #hero-image{
-        img{
-            width: 100%;
-            height: 500px;
-            border-radius: 20px;
-        }
+#hero-container {
+  #hero-image {
+    img {
+      @include heroImage()
     }
+  }
 }

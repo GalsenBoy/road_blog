@@ -1,0 +1,22 @@
+#about {
+  padding: 1em;
+  p {
+    @include lineHeight();
+    @include marginTop(1em);
+  }
+  #about-content {
+    h1 {
+      display: inline;
+      font-size: 1.2em;
+    }
+    @include flex();
+    gap: 1em;
+    img {
+      width: 350px;
+      @include radius();
+    }
+  }
+  #about-thanks {
+    @include marginTop(2em);
+  }
+}

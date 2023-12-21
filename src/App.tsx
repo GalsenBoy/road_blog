@@ -4,6 +4,7 @@ import Home from "./pages/home/Home";
 import About from "./components/about/about";
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
+import GetPost from "./components/get_post/GetPost";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/about" element={<About />}></Route>
+          <Route path="/get" element={<GetPost/>}></Route>
         </Routes>
         <Footer />
       </BrowserRouter>

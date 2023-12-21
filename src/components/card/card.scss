@@ -2,16 +2,18 @@
   @include flex();
   gap: 1.5em;
   flex-wrap: wrap;
-  margin-top: 3em;
+ @include marginTop(3em);
   padding: 2em;
   #card-container {
     max-width: 350px;
     word-break:break-all;
     img {
-      border-radius: 20px;
+      @include radius();
+     height: 233px;
     }
     #card-data {
       h3 {
+        @include marginTop(.5em);
         font-weight: 700;
         font-size: 1.3em;
       }
@@ -21,7 +23,7 @@
       }
     }
     #card-data,p{
-      margin-top: 1em;
+    @include marginTop(1em);
     }
   }
 }
