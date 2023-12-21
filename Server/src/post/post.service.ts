@@ -5,6 +5,8 @@ import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { IPost } from 'interfaces/IPost';
 import { Upload } from 'src/upload/upload.entity';
+// import { Response } from 'express';
+// import { join } from 'path';
 
 @Injectable()
 export class PostService {
@@ -25,10 +27,24 @@ export class PostService {
   }
 
 
+  async findAllWithImages() {
+    return this.postRepository.find({ relations: ['upload'] });
+  }
+
+  async findOneWithImages(id: string) {
+    return this.postRepository.findOne({ 
+      where: { id }, 
+      relations: ['upload']
+    });
+  }
+  
+  
 
   async findOne(id: string) {
     return this.postRepository.findOneBy({ id });
   }
+
+  
 
   async update(id: string, updatePost: IPost) {
     const post = await this.findOne(id);

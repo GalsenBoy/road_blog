@@ -5,7 +5,7 @@
     font-size: 2.2em;
   }
   p {
-    margin-top: 2em;
+    @include marginTop(2em);
     strong {
      @include underlineWithOffset()
     }

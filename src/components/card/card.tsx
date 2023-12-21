@@ -1,32 +1,37 @@
-import { truncate } from '../../utils/truncate'
-import './card.scss'
-export default function Card(){
- return (
+import { useEffect, useState } from "react";
+import "./card.scss";
+import IPost from "../../interfaces/IPost";
+import axios from "axios";
+import { API_REMOTE } from "../../routes";
+import DisplayCard from "../display_card/DisplayCard";
+
+export default function Card() {
+  const [posts, setPosts] = useState<IPost[]>();
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  const getAllPosts = async () => {
+    try {
+      const response = await axios.get(`${API_REMOTE}posts`);
+      setPosts(response.data);
+      setIsLoading(true);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    getAllPosts();
+  }, []);
+
+  return (
     <div id="card-flex">
-        <div id="card-container">
-            <img src="/nature.jpg" alt="" />
-            <div id='card-data'>
-                <h3>Migrating to linear 101</h3>
-                <p>{truncate("Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae magnam tempore possimus enim voluptatum sapiente exercitationem ullam sunt rem")}</p>
-                <p id='publication'>Publié le 11 Dec 2028</p>
-            </div>
-        </div>
-        <div id="card-container">
-            <img src="/nature.jpg" alt="" />
-            <div id='card-data'>
-                <h3>Migrating to linear 101</h3>
-                <p>{truncate("Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae magnam tempore possimus enim voluptatum sapiente exercitationem ullam sunt rem")}</p>
-                <p id='publication'>Publié le 11 Dec 2028</p>
-            </div>
-        </div>
-        <div id="card-container">
-            <img src="/nature.jpg" alt="" />
-            <div id='card-data'>
-                <h3>Migrating to linear 101</h3>
-                <p>{truncate("Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae magnam tempore possimus enim voluptatum sapiente exercitationem ullam sunt rem")}</p>
-                <p id='publication'>Publié le 11 Dec 2028</p>
-            </div>
-        </div>
+      {isLoading && (
+        <>
+          {posts?.map((post,key) => (
+            <DisplayCard key={key} post={post}/>
+          ))}
+        </>
+      )}
     </div>
- )  
+  );
 }

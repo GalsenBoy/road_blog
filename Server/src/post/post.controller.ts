@@ -1,5 +1,14 @@
 /* eslint-disable prettier/prettier */
-import { Controller, Get, Post, Delete, Body, Param, UploadedFile, UseInterceptors } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Delete,
+  Body,
+  Param,
+  UploadedFile,
+  UseInterceptors,
+} from '@nestjs/common';
 import { PostService } from './post.service';
 import { IPost } from 'interfaces/IPost';
 import { FileInterceptor } from '@nestjs/platform-express';
@@ -7,16 +16,19 @@ import { Upload } from 'src/upload/upload.entity';
 
 @Controller('posts')
 export class PostController {
-  constructor(private readonly postService: PostService) { }
+  constructor(private readonly postService: PostService) {}
   @Get()
-  async findAll() {
-    return this.postService.findAll();
+  async getAllPosts() {
+    const posts = await this.postService.findAllWithImages();
+    return posts;
   }
 
   @Post()
-  @UseInterceptors(FileInterceptor('file', {
-    dest: 'uploads'
-  }))
+  @UseInterceptors(
+    FileInterceptor('file', {
+      dest: 'uploads',
+    }),
+  )
   async create(@Body() post: IPost, @UploadedFile() file: Express.Multer.File) {
     try {
       let uploads: Upload[] = [];
@@ -34,14 +46,14 @@ export class PostController {
     }
   }
 
-
   @Get(':id')
-  async findOne(@Param('id') id: string) {
-    return this.postService.findOne(id)
+  async getOnePost(@Param('id') id: string) {
+    const post = await this.postService.findOneWithImages(id);
+    return post;
   }
 
   @Delete(':id')
   async delete(@Param('id') id: string) {
-    return this.postService.delete(id)
+    return this.postService.delete(id);
   }
 }
