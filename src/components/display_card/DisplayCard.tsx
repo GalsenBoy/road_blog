@@ -4,11 +4,10 @@ import { truncate } from "../../utils/truncate";
 
 type DisplayCardProps = {
     post:IPost;
-    key: number |string
 }
-export default function DisplayCard({post,key}:DisplayCardProps) {
+export default function DisplayCard({post}:DisplayCardProps) {
   return (
-    <div id="card-container" key={key}>
+    <div id="card-container">
       <div id="card-data">
         <div>
           {post.upload &&

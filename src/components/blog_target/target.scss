@@ -1,11 +1,19 @@
 #target-contain {
   padding: 1.5em;
+  // #slogan{
+  //   color: var(--title);
+  //   font-size: 1.2em;
+  //   font-weight: 500;
+  // }
   h1 {
     font-weight: bold;
     font-size: 2.2em;
+    // margin-bottom: 2em;
+    // text-align: center
   }
   p {
     @include marginTop(2em);
+    color: var(--title);
     strong {
      @include underlineWithOffset()
     }
