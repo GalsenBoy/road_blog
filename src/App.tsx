@@ -5,6 +5,7 @@ import About from "./components/about/about";
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
 import GetPost from "./components/get_post/GetPost";
+import Contact from "./components/contact/contact";
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/about" element={<About />}></Route>
-          <Route path="/get" element={<GetPost/>}></Route>
+          <Route path="/post/:postId" element={<GetPost/>}></Route>
+          <Route path="/contact" element={<Contact/>}></Route>
         </Routes>
         <Footer />
       </BrowserRouter>
