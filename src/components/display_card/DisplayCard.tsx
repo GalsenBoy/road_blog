@@ -1,3 +1,4 @@
+import Link from "../../composable/Links";
 import IPost from "../../interfaces/IPost";
 import { truncate } from "../../utils/truncate";
 
@@ -12,7 +13,7 @@ export default function DisplayCard({post,key}:DisplayCardProps) {
         <div>
           {post.upload &&
             post.upload.map((upload, index) => (
-              <img key={index} src={upload.originalname} alt="" />
+                <Link key={index} to={`/post/${post.id}`} imageSrc={upload.originalname} altText={upload.fieldname}/>
             ))}
           <h3>{post.title}</h3>
           <p>{truncate(post.description)}</p>
