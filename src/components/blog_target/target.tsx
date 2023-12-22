@@ -51,8 +51,7 @@ export default function Target() {
           tutoriels, et plongez-vous dans le passionnant monde de React, NestJS
           et TypeScript. Le futur du web commence ici !
         </p>
-
-        <h2>🚀 ReactNest killer - Explorez, apprenez, codez ! 🚀</h2>
+        {/* <p id="slogan">🚀 ReactNest killer - Explorez, apprenez, codez ! 🚀</p> */}
       </div>
     </section>
   );

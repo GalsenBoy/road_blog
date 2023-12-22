@@ -5,12 +5,13 @@ export default function About() {
       <div id="about">
         <div id="about-content">
           <img src="/man.jpg" alt="bilaly" />
-          <div>
-            <p>
-              Salut ! Je m'appelle{" "}
-              <h1>
-                <strong>Bilaly Cissokho</strong>
-              </h1>
+          <div id="test">
+            <p className="inline">Salut ! Je m'appelle </p>
+            <h1>
+              <strong>Bilaly Cissokho</strong>
+            </h1>
+            <p className="inline">
+              {" "}
               , passionné de développement web, actuellement en alternance chez
               Infoconseil à Neuilly-Sur-Seine depuis avril dernier. Mon parcours
               dans le monde du développement a débuté par un stage enrichissant

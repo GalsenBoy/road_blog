@@ -13,6 +13,27 @@
     gap: 1.5em;
     a {
       font-size: 1.2em;
+      font-weight: 500;
+      position: relative;
+      &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        left: 0;
+        height: 0;
+        bottom: 0.1em;
+        background-color: #6fb3b8;
+        transition: height 0.2s;
+      }
+      &:hover::after,
+      &.isActive::after {
+        height: 5px;
+      }
     }
   }
 }
+
+// .isActive {
+//   color: var(--title);
+//   }
+

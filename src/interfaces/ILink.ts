@@ -4,4 +4,5 @@ export default interface ILink {
     imageSrc?: string;
     altText?: string;
     className?: string;
+    isActive?:string
 }
