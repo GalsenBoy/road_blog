@@ -1,0 +1,10 @@
+{
+    "functions": {
+      "src/**/*.ts": {
+        "runtime": "vercel-node@0.22.0",
+        "buildCommand": "npm run build",
+        "serve": false
+      }
+    }
+  }
+  
