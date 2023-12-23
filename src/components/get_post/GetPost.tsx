@@ -3,7 +3,7 @@ import "./get_post.scss";
 import { useEffect, useState } from "react";
 import IPost from "../../interfaces/IPost";
 import axios from "axios";
-import { API_NEST, API_REMOTE } from "../../routes";
+import { API_REMOTE, LOCAL } from "../../routes";
 export default function GetPost() {
   const { postId } = useParams();
   const [post, setPost] = useState<IPost>();
@@ -17,24 +17,26 @@ export default function GetPost() {
     }
   };
 
-  useEffect(()=>{
-    getPost()
-  },[postId])
+  useEffect(() => {
+    getPost();
+  }, [postId]);
 
   console.log(post);
-  
+
   return (
     <section>
       <div id="getPostContain">
         <h1>{post?.title}</h1>
         {post?.upload &&
-            post.upload.map((upload, index) => (
-                <img key={index} src={`${API_NEST}/${upload.originalname}`} alt={upload.originalname} />
-            ))}
+          post.upload.map((upload, index) => (
+            <img
+              key={index}
+              src={`${LOCAL}/${upload.originalname}`}
+              alt={upload.originalname}
+            />
+          ))}
         <div>
-          <p>
-           {post?.description}
-          </p>
+          <p>{post?.description}</p>
         </div>
       </div>
     </section>
