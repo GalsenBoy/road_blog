@@ -1,10 +1,15 @@
 {
-    "functions": {
-      "src/**/*.ts": {
-        "runtime": "vercel-node@0.22.0",
-        "buildCommand": "npm run build",
-        "serve": false
-      }
+  "version": 2,
+  "builds": [
+    {
+      "src": "dist/main.ts",
+      "use": "@vercel/node"
     }
-  }
-  
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "dist/main.ts"
+    }
+  ]
+}
