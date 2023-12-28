@@ -27,10 +27,15 @@ export default function Card() {
     <div id="card-flex">
       {isLoading && (
         <>
-          {posts?.map((post,key) => (
-            <DisplayCard key={key} post={post}/>
+          {posts?.map((post, key) => (
+            <DisplayCard key={key} post={post} />
           ))}
         </>
+      )}
+      {!isLoading && (
+        <h1 className="text-2xl font-bold text-center">
+          Configuration du backend en cours sur Vercel
+        </h1>
       )}
     </div>
   );
