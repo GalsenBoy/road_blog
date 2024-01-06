@@ -5,5 +5,5 @@ export default interface IPost {
   title: string;
   upload: IUpload[]
   description: string;
-  createAt: Date;
+  create_at: Date;
 }

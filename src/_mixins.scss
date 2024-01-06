@@ -2,22 +2,26 @@
   display: flex;
 }
 
-@mixin justifyCenter{
+@mixin justifyCenter {
   @include flex();
   justify-content: center;
 }
-@mixin alignCenter{
+
+@mixin alignCenter {
   align-items: center;
 }
-@mixin flexAlignCenter{
+
+@mixin flexAlignCenter {
   @include flex();
   @include alignCenter();
 }
-@mixin justifyAlignCenter{
+
+@mixin justifyAlignCenter {
   @include justifyAlignCenter();
   @include alignCenter()
 }
-@mixin underlineWithOffset{
+
+@mixin underlineWithOffset {
   text-decoration: underline;
   text-underline-offset: 2px;
 }
@@ -27,20 +31,20 @@
   height: 100%;
 }
 
-@mixin radius{
+@mixin radius {
   border-radius: 20px;
 }
 
-@mixin marginTop($value){
+@mixin marginTop($value) {
   margin-top: $value;
 }
 
-@mixin heroImage{
+@mixin heroImage {
   width: 100%;
   height: 500px;
   @include radius();
 }
 
-@mixin lineHeight{
+@mixin lineHeight() {
   line-height: 1.7em;
 }

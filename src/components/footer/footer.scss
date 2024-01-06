@@ -1,27 +1,41 @@
 footer {
   @include marginTop(5em);
   padding: 1.5em;
+
   #footer-container {
     gap: 1em;
+
     h3 {
       font-size: 1.4em;
       color: var(--title);
     }
+
     div {
       gap: 0.7em;
     }
   }
+
   #footer-container,
   #footer-container div {
     @include flexAlignCenter();
   }
+
   #copyright {
     @include marginTop(3em);
     border-top: 2px solid;
     @include justifyCenter();
     font-size: 1.2em;
+
     h4 {
       margin-top: 0.5em;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  footer {
+    #copyright {
+      font-size: 1em;
     }
   }
 }
