@@ -4,11 +4,14 @@
     font-size: 2.2em;
     font-weight: 600;
     margin-bottom: 1em;
+    text-transform: uppercase
   }
+
   img {
     @include heroImage();
   }
-  p{
+
+  p {
     @include marginTop(3em);
     @include lineHeight();
     padding: 0 1em;

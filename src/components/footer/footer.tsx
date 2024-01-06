@@ -1,21 +1,10 @@
 import Link from "../../composable/Links";
-import ILink from "../../interfaces/ILink";
 import "./footer.scss";
+import { socialsMedia } from "./socialMedia";
 
 export default function Footer() {
   const year: number = new Date().getFullYear();
-  const socialsMedia: ILink[] = [
-    {
-      to: "https://github.com/GalsenBoy",
-      imageSrc: "/github.webp",
-      altText: "github",
-    },
-    {
-      to: "https://www.linkedin.com/in/bilaly-cissokho-473400278/?originalSubdomain=fr",
-      imageSrc: "/linkedin.webp",
-      altText: "linkedin",
-    },
-  ];
+
   return (
     <footer>
       <div id="footer-container">

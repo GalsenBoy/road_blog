@@ -1,22 +1,60 @@
 #about {
   padding: 1em;
+
   p {
     @include lineHeight();
     @include marginTop(1em);
+    font-size: large;
   }
+
   #about-content {
-    h1 {
-      display: inline;
-      font-size: 1.2em;
-    }
+    padding: 10px;
     @include flex();
     gap: 1em;
+    align-items: center;
+
+    h1 {
+      display: inline;
+      font-size: 1.3em;
+    }
+
     img {
       width: 350px;
       @include radius();
     }
   }
+
   #about-thanks {
     @include marginTop(2em);
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  #about {
+    #about-content {
+      padding: 0;
+
+      #text {
+        @include marginTop(2em)
+      }
+
+      img {
+        width: 50%;
+        margin: 0 auto;
+        height: 500px;
+      }
+
+      display: block;
+    }
+  }
+}
+
+@media screen and (max-width: 650px) {
+  #about {
+    #about-content {
+      img {
+        width: 100%;
+      }
+    }
   }
 }

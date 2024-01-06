@@ -4,29 +4,35 @@
   flex-wrap: wrap;
   @include marginTop(3em);
   padding: 2em;
+
   #card-container {
     max-width: 350px;
     word-break: break-all;
+
     img {
       @include radius();
       height: 233px;
       transition: all 0.4s;
+
       &:hover {
         transform: scale(1.1);
       }
     }
+
     #card-data {
       h3 {
         @include marginTop(0.5em);
         font-weight: 700;
         font-size: 1.3em;
         color: var(--title);
+        text-transform: uppercase;
       }
 
       #publication {
         font-weight: 500;
       }
     }
+
     #card-data,
     p {
       @include marginTop(1em);
